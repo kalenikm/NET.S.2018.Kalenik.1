@@ -45,5 +45,57 @@ namespace Logic
             a = b;
             b = buff;
         }
+
+        public static void MergeSort(int[] array)
+        {
+            if (array == null)
+                throw new ArgumentNullException($"Array {nameof(array)} is null.");
+
+            if (array.Length == 1)
+                return;
+
+            int mid = array.Length / 2;
+
+            int[] right = new int[array.Length - mid];
+            int[] left = new int[mid];
+
+            Array.Copy(array, 0, left, 0, mid);
+            Array.Copy(array, mid, right, 0, array.Length - mid);
+
+            MergeSort(left);
+            MergeSort(right);
+
+            int[] res = Merge(left, right);
+
+            res.CopyTo(array, 0);
+        }
+
+        private static int[] Merge(int[] left, int[] right)
+        {
+            int len = left.Length + right.Length;
+            int[] result = new int[len];
+            int l = 0;
+            int r = 0;
+
+            for (int i = 0; i < len; i++)
+            {
+                if (r >= right.Length)
+                {
+                    result[i] = left[l];
+                    l++;
+                }
+                else if (l < left.Length && left[l] < right[r])
+                {
+                    result[i] = left[l];
+                    l++;
+                }
+                else
+                {
+                    result[i] = right[r];
+                    r++;
+                }
+            }
+            return result;
+        }
     }
 }

@@ -12,6 +12,14 @@ namespace ConsoleUI
 
             foreach (var num in arr)
                 Console.Write(num + " ");
+
+            Console.WriteLine();
+
+            arr = new [] {3, 0, 1, 8, 7, 2, 5, 4, 9, 6};
+            ArraySorter.MergeSort(arr);
+
+            foreach (var num in arr)
+                Console.Write(num + " ");
         }
     }
 }
