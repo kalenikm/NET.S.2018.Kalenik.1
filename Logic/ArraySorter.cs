@@ -4,6 +4,12 @@ namespace Logic
 {
     public static class ArraySorter
     {
+        /// <summary>
+        /// Sorts int array by Hoar's alghorithm. 
+        /// </summary>
+        /// <param name="array">
+        /// Array to sort.
+        /// </param>
         public static void QuickSort(int[] array)
         {
             if(array == null)
@@ -46,6 +52,12 @@ namespace Logic
             b = buff;
         }
 
+        /// <summary>
+        /// Sorts int array by merge alghorithm.
+        /// </summary>
+        /// <param name="array">
+        /// Array to sort.
+        /// </param>
         public static void MergeSort(int[] array)
         {
             if (array == null)
