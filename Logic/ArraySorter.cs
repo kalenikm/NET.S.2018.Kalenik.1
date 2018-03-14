@@ -23,9 +23,6 @@ namespace Logic
 
         private static void QuickSort(int[] array, int left, int right)
         {
-            if (right - left < 1)
-                return;
-
             int pivot = right;
             int wall = left;
 
